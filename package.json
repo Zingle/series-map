@@ -1,0 +1,22 @@
+{
+  "name": "series-map",
+  "version": "0.0.1",
+  "description": "map values by a series of values",
+  "main": "series-map.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Zingle/series-map.git"
+  },
+  "author": "Richard Remer <reanjr@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Zingle/series-map/issues"
+  },
+  "homepage": "https://github.com/Zingle/series-map#readme"
+}
