@@ -2,6 +2,7 @@ const roots = new WeakMap();
 
 /**
  * Map a series of values to another distinct value.
+ * @constructor
  * @returns {SeriesMap}
  */
 function SeriesMap() {
@@ -17,6 +18,11 @@ function SeriesMap() {
  * Class for derived objects.
  */
 SeriesMap[Symbol.species] = SeriesMap;
+
+/**
+ * Constructor.
+ */
+SeriesMap.prototype.constructor = SeriesMap;
 
 /**
  * Return true if map contains a series.
