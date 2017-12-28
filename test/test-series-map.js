@@ -15,6 +15,12 @@ describe("SeriesMap", () => {
         });
     });
 
+    describe(".@@species", () => {
+        it("should have consistent species", () => {
+            expect(SeriesMap[Symbol.species]).to.be(SeriesMap);
+        });
+    });
+
     describe(".prototype", () => {
         describe(".get(array)", () => {
             it("should return value mapped to a series", () => {

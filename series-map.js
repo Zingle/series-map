@@ -14,6 +14,11 @@ function SeriesMap() {
 }
 
 /**
+ * Class for derived objects.
+ */
+SeriesMap[Symbol.species] = SeriesMap;
+
+/**
  * Return true if map contains a series.
  * @param {array} series
  * @returns {boolean}
