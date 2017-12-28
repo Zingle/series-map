@@ -1,5 +1,5 @@
 const expect = require("expect.js");
-const SeriesMap = require("../lib/series-map");
+const SeriesMap = require("../series-map");
 
 describe("SeriesMap", () => {
     var map;
