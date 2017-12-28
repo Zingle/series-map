@@ -79,6 +79,12 @@ describe("SeriesMap", () => {
         });
 
         describe(".@@iterator()", () => {
+            it("should be an alias for .entries()", () => {
+                expect(map[Symbol.iterator]).to.be(map.entries);
+            });
+        });
+
+        describe(".entries()", () => {
             beforeEach(() => {
                 map = new SeriesMap();
 
@@ -93,6 +99,64 @@ describe("SeriesMap", () => {
 
                 for (let [series, value] of map) {
                     expect(series.length).to.be(value);
+                    values.push(value);
+                    count++;
+                }
+
+                expect(count).to.be(3);
+                expect(values).to.contain(0);
+                expect(values).to.contain(1);
+                expect(values).to.contain(2);
+            });
+        });
+
+        describe(".keys()", () => {
+            beforeEach(() => {
+                map = new SeriesMap();
+
+                map.set([], 0);
+                map.set([1], 1);
+                map.set([1, 2], 2);
+            });
+
+            it("should iterate over series/value pairs", () => {
+                var count = 0,
+                    values = [];
+
+                for (let series of map.keys()) {
+                    expect(series).to.be.an("array");
+
+                    for (let i = 0, len = series.length; i < len; i++) {
+                        expect(series[i]).to.be(i+1);
+                    }
+
+                    values.push(series.length);
+                    count++;
+                }
+
+                expect(count).to.be(3);
+                expect(values).to.contain(0);
+                expect(values).to.contain(1);
+                expect(values).to.contain(2);
+            });
+        });
+
+
+        describe(".values()", () => {
+            beforeEach(() => {
+                map = new SeriesMap();
+
+                map.set([], 0);
+                map.set([1], 1);
+                map.set([1, 2], 2);
+            });
+
+            it("should iterate over series/value pairs", () => {
+                var count = 0,
+                    values = [];
+
+                for (let value of map.values()) {
+                    expect(value).to.be.a("number");
                     values.push(value);
                     count++;
                 }
