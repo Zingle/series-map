@@ -18,5 +18,9 @@
   "bugs": {
     "url": "https://github.com/Zingle/series-map/issues"
   },
-  "homepage": "https://github.com/Zingle/series-map#readme"
+  "homepage": "https://github.com/Zingle/series-map#readme",
+  "devDependencies": {
+    "expect.js": "^0.3.1",
+    "mocha": "^4.0.1"
+  }
 }
