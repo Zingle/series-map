@@ -70,4 +70,30 @@ describe("SeriesMap", () => {
             expect(map.has(["foo"])).to.be(false);
         });
     });
+
+    describe("#@@iterator()", () => {
+        beforeEach(() => {
+            map = new SeriesMap();
+
+            map.set([], 0);
+            map.set([1], 1);
+            map.set([1, 2], 2);
+        });
+
+        it("should iterate over series/value pairs", () => {
+            var count = 0,
+                values = [];
+
+            for (let [series, value] of map) {
+                expect(series.length).to.be(value);
+                values.push(value);
+                count++;
+            }
+
+            expect(count).to.be(3);
+            expect(values).to.contain(0);
+            expect(values).to.contain(1);
+            expect(values).to.contain(2);
+        });
+    });
 });

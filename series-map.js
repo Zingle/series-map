@@ -107,4 +107,24 @@ SeriesMap.prototype.clear = function() {
     roots.get(this).clear();
 }
 
+/**
+ * Return iterator of `[series, value]` pairs.
+ * @returns {Iterator}
+ */
+SeriesMap.prototype[Symbol.iterator] = function*() {
+    const root = roots.get(this);
+
+    for (let length of root.keys()) {
+        yield* iterate(length, root.get(length));
+    }
+
+    function* iterate(length, value, series = []) {
+        if (series.length !== length) for (let [k,v] of value.entries()) {
+            yield* iterate(length, v, series.concat(k));
+        } else {
+            yield [series, value];
+        }
+    }
+}
+
 module.exports = SeriesMap;
