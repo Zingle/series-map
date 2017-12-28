@@ -1,6 +1,6 @@
 {
   "name": "series-map",
-  "version": "0.0.6",
+  "version": "0.1.0",
   "description": "map values by a series of values",
   "main": "series-map.js",
   "directories": {

@@ -84,6 +84,7 @@ SeriesMap.prototype.set = function(series, value) {
     }
 
     map.set(keys[keys.length-1], value);
+    return this;
 },
 
 /**
@@ -99,7 +100,7 @@ SeriesMap.prototype.delete = function(series) {
         i
 
     for (i = 0; i < keys.length; i++) {
-        if (!map.has(keys[i])) return;
+        if (!map.has(keys[i])) return false;
         maps.push(map);
         map = map.get(keys[i]);
     }
@@ -107,8 +108,10 @@ SeriesMap.prototype.delete = function(series) {
     for (i = keys.length - 1; i >= 0; i--) {
         map = maps[i];
         map.delete(keys[i]);
-        if (map.size) return;
+        if (map.size) return true;
     }
+
+    return true;
 },
 
 /**

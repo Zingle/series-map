@@ -46,6 +46,10 @@ describe("SeriesMap", () => {
             it("should error on non-array series", () => {
                 expect(() => map.set("foo", 42)).to.throwError();
             });
+
+            it("should return the SeriesMap", () => {
+                expect(map.set(["bang"], 13)).to.be(map);
+            });
         });
 
         describe(".has(array)", () => {
@@ -63,14 +67,23 @@ describe("SeriesMap", () => {
         });
 
         describe(".delete(array)", () => {
-            it("should unmap sequence", () => {
+            it("should unmap series", () => {
                 map.delete(["foo", "bar"]);
                 expect(map.has(["foo", "bar"])).to.be(false);
+            });
+
+            it("should ignore unmapped series", () => {
+                expect(() => map.delete(["wiz", "bang"])).to.not.throwError();
+            });
+
+            it("should return true if series was unmapped", () => {
+                expect(map.delete(["foo", "bar"])).to.be(true);
+                expect(map.delete(["wiz", "bang"])).to.be(false);
             });
         });
 
         describe(".clear()", () => {
-            it("should unmap all sequences", () => {
+            it("should unmap all series", () => {
                 map.set(["foo"], 13);
                 map.clear();
                 expect(map.has(["foo", "bar"])).to.be(false);
