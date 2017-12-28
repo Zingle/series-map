@@ -9,6 +9,12 @@ describe("SeriesMap", () => {
         map.set(["foo", "bar"], 42);
     });
 
+    describe(".length", () => {
+        it("should be 0", () => {
+            expect(SeriesMap.length).to.be(0);
+        });
+    });
+
     describe("#get(array)", () => {
         it("should return value mapped to a series", () => {
             expect(map.get(["foo", "bar"])).to.be(42);

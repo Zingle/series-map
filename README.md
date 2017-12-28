@@ -76,7 +76,6 @@ To do
  * finish `Map` implementation
    * fix return value of `.delete`, `.set`
    * implement `Symbol.iterator` protocol
-   * implement `length` property (always 0)
    * implement `Symbol.species` property (`SeriesMap`)
    * ensure `.constructor` is implemented on `.prototype`
    * implement `.entries()`, `.values()`, `.keys()`
