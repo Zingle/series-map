@@ -72,5 +72,4 @@ Set the value for the `series`in the `SeriesMap` object.
 To do
 -----
  * accept args (research how bad args handled by `Map`)
- * make `NaN` handling consistent with `Map`
  

@@ -50,6 +50,11 @@ describe("SeriesMap", () => {
             it("should return the SeriesMap", () => {
                 expect(map.set(["bang"], 13)).to.be(map);
             });
+
+            it("should handle NaN equality", () => {
+                map.set([NaN, "foo"], 13);
+                expect(map.get([NaN, "foo"])).to.be(13);
+            });
         });
 
         describe(".has(array)", () => {
