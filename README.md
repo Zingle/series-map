@@ -51,20 +51,33 @@ function memofn(a, b, c) {
 API
 ---
 
-### new SeriesMap()
-Create an empty `SeriesMap`.
+### new SeriesMap([iterable])
+Create a `SeriesMap`.  If `iterable` is passed, it should contain pairs of
+`[series, value]` entries.
 
-### SeriesMap#clear()
+### SeriesMap.prototype.clear()
 Remove all series/value pairs from the `SeriesMap` object.
 
-### SeriesMap#delete(series)
+### SeriesMap.prototype.delete(series)
 Remove series from the `SeriesMap` object.
 
-### SeriesMap#get(series)
+### SeriesMap.prototype.entries()
+Return an iterator over `[series, value]` pairs mapped by `SeriesMap`.
+
+### SeriesMap.prototype.forEach(function)
+Iterate over `SeriesMap` entries and call function for each entry.
+
+### SeriesMap.prototype.get(series)
 Return the value associated with the `series` or `undefined` if there is none.
 
-### SeriesMap#has(series)
+### SeriesMap.prototype.has(series)
 Return true if the `series` has an associated value.
 
-### SeriesMap#set(series, value)
+### SeriesMap.prototype.keys()
+Return an iterator over keys mapped by `SeriesMap`.
+
+### SeriesMap.prototype.set(series, value)
 Set the value for the `series`in the `SeriesMap` object.
+
+### SeriesMap.prototype.values()
+Return an iterator over values mapped by `SeriesMap`.
