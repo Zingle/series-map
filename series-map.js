@@ -3,6 +3,7 @@ const roots = new WeakMap();
 /**
  * Map a series of values to another distinct value.
  * @constructor
+ * @param {Iterator} [iterable]
  * @returns {SeriesMap}
  */
 function SeriesMap() {
@@ -10,7 +11,22 @@ function SeriesMap() {
         throw new TypeError("Constructor SeriesMap requires 'new'");
     }
 
+    const iterable = arguments[0];
+
     roots.set(this, new Map());
+
+    if (arguments.length && typeof iterable[Symbol.iterator] !== "function") {
+        throw new TypeError("(iterator)[Symbol.iterator] is not a function");
+    }
+
+    if (iterable) for (let entry of iterable) {
+        if (!(entry instanceof Array)) {
+            throw new TypeError(`Iterator value ${entry} is not an entry object`);
+        }
+
+        this.set(entry[0], entry[1]);
+    }
+
     return this;
 }
 

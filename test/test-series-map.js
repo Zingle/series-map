@@ -1,7 +1,7 @@
 const expect = require("expect.js");
 const SeriesMap = require("../series-map");
 
-describe("SeriesMap", () => {
+describe("SeriesMap([iterator])", () => {
     var map;
 
     beforeEach(() => {
@@ -211,5 +211,19 @@ describe("SeriesMap", () => {
                 });
             });
         });
+    });
+
+    it("should initialize SeriesMap", () => {
+        map = new SeriesMap([[["foo"], 13], [["bar"], 42]]);
+        expect(map.get(["foo"])).to.be(13);
+        expect(map.get(["bar"])).to.be(42);
+    });
+
+    it("should throw on bad args", () => {
+        expect(() => new SeriesMap({})).to.throwError();
+        expect(() => new SeriesMap(0)).to.throwError();
+        expect(() => new SeriesMap(true)).to.throwError();
+        expect(() => new SeriesMap("foo")).to.throwError();
+        expect(() => new SeriesMap(Symbol())).to.throwError();
     });
 });

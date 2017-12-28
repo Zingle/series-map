@@ -68,8 +68,3 @@ Return true if the `series` has an associated value.
 
 ### SeriesMap#set(series, value)
 Set the value for the `series`in the `SeriesMap` object.
-
-To do
------
- * accept args (research how bad args handled by `Map`)
- 
