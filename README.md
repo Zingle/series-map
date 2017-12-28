@@ -75,4 +75,3 @@ To do
  * make `NaN` handling consistent with `Map`
  * finish `Map` implementation
    * fix return value of `.delete`, `.set`
-   * implement `.forEach()`

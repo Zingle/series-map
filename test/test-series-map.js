@@ -167,5 +167,31 @@ describe("SeriesMap", () => {
                 expect(values).to.contain(2);
             });
         });
+
+        describe(".forEach(function, [*])", () => {
+            const context = {};
+
+            it("should iterate over the mappings", () => {
+                var count = 0;
+
+                map.forEach(function() {
+                    expect(this).to.be(context);
+                    count++;
+                }, context);
+
+                expect(count).to.be(1);
+            });
+
+            it("should pass (value, series, map)", () => {
+                map.forEach((value, series, m) => {
+                    expect(value).to.be(42);
+                    expect(series).to.be.an("array");
+                    expect(series.length).to.be(2);
+                    expect(series[0]).to.be("foo");
+                    expect(series[1]).to.be("bar");
+                    expect(m).to.be(map);
+                });
+            });
+        });
     });
 });

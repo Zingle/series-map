@@ -119,6 +119,17 @@ SeriesMap.prototype.clear = function() {
 }
 
 /**
+ * Iterate over mapped series/value pairs.
+ * @param {function} callback
+ * @param {*} [thisArg]
+ */
+SeriesMap.prototype.forEach = function(callback, thisArg) {
+    for (let [series, value] of this) {
+        callback.call(thisArg, value, series, this);
+    }
+};
+
+/**
  * Return iterator of `[series, value]` pairs.
  * @returns {Iterator}
  */
