@@ -1,11 +1,12 @@
 {
   "name": "series-map",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "map values by a series of values",
   "main": "series-map.js",
   "directories": {
     "test": "test"
   },
+  "files": ["series-map-es6.js"],
   "scripts": {
     "prepublish": "sed -e 's/module\\.exports =/export default/' series-map.js > series-map-es6.js",
     "test": "mocha"
